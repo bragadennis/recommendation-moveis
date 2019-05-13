@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>Register New User</h1> <br><br>
+
+
+	<form action='/register' method="POST">
+		{{ form.hidden_tag() }}
+		<p> {{ wtf.form_errors(form, hiddens="only") }} </p>
+		
+		<div class='container-fluid'>
+			<div class='row'>
+				<div class='col-md-2'>
+					{{ form.username.label }}
+				</div>
+				<div class='col-md-4'>
+					{{ form.username(size=32) }} <br>
+					{% for error in form.username.errors %}
+						<span style='color:red;'>[ {{ error }} ]</span>
+					{% endfor %}
+				</div>
+			</div>
+
+			<div class='row'>
+				<div class='col-md-2'>
+					{{ form.firstname.label }}
+				</div>
+				<div class='col-md-4'>
+					{{ form.firstname(size=32) }} <br>
+					{% for error in form.firstname.errors %}
+						<span style='color:red;'>[ {{ error }} ]</span>
+					{% endfor %}
+				</div>
+			</div>
+
+			<div class='row'>
+				<div class='col-md-2'>
+					{{ form.lastname.label }}
+				</div>
+				<div class='col-md-4'>
+					{{ form.lastname(size=32) }} <br>
+					{% for error in form.lastname.errors %}
+						<span style='color:red;'>[ {{ error }} ]</span>
+					{% endfor %}
+				</div>
+			</div>
+
+			<div class='row'>
+				<div class='col-md-2'>
+					{{ form.email.label }}
+				</div>
+				<div class='col-md-4'>
+					{{ form.email(size=32) }} <br>
+					{% for error in form.email.errors %}
+						<span style='color:red;'>[ {{ error }} ]</span>
+					{% endfor %}
+				</div>
+			</div>
+
+			<div class='row'>
+				<div class='col-md-2'>
+					{{ form.gender.label }}
+				</div>
+				<div class='col-md-4'>
+					{{ form.gender }} <br>
+					{% for error in form.gender.errors %}
+						<span style='color:red;'>[ {{ error }} ]</span>
+					{% endfor %}
+				</div>
+			</div>
+
+			<hr>
+
+			<div class='row'>
+				<div class='col-md-2'>
+					{{ form.password.label }}
+				</div>
+				<div class='col-md-4'>
+					{{ form.password(size=32) }} <br>
+					{% for error in form.password.errors %}
+						<span style='color:red;'>[ {{ error }} ]</span>
+					{% endfor %}
+				</div>
+			</div>
+
+			<div class='row'>
+				<div class='col-md-2'>
+					{{ form.confirm_password.label }}
+				</div>
+				<div class='col-md-4'>
+					{{ form.confirm_password(size=32) }} <br>
+					{% for error in form.confirm_password.errors %}
+						<span style='color:red;'>[ {{ error }} ]</span>
+					{% endfor %}
+				</div>
+			</div>
+
+			<div class='row'>
+				<div class='col-md-3'>
+					{{ form.submit() }}
+				</div>
+			</div>
+		</div>		
+	</form>
+{% endblock %}

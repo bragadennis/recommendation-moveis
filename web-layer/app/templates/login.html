@@ -3,6 +3,8 @@
 {% block content %}
 	<h1>Sign In</h1>
 
+	{% include '_flash-messages.html' %}
+
 	<form action='/login' method="POST">
 		{{ form.hidden_tag() }}
 		<p> {{ wtf.form_errors(form, hiddens="only") }} </p>

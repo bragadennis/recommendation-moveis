@@ -16,7 +16,8 @@ application.config.from_object( Config )
 db = SQLAlchemy( application )
 migrate = Migrate( application, db )
 
-login_manager = LoginManager(application) 
+login_manager = LoginManager() 
+login_manager.init_app(application)
 login_manager.login_view = 'login'
 
 from app import routes, models
@@ -27,6 +28,7 @@ def main_navbar():
     return Navbar(
         'Recommendation App', 
         View('Home', 'home'), 
+        View('Register', 'register'),
         View('Logout', 'logout'),
     )
 
