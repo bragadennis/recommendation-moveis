@@ -16,7 +16,8 @@ i_cols = ['movie id', 'movie title' ,'release date','video release date', 'IMDb 
 items = pd.read_csv('../../datasets/ml-100k/u.item', sep='|', names=i_cols, encoding='latin-1')
 
 tb_users = database.users
-tb_users.insert_many(users.to_dict('records')) #Converts the imported data into an array of dictionaries with each column name being the identifier for an attribute
+#Converts the imported data into an array of dictionaries with each column name being the identifier for an attribute
+tb_users.insert_many(users.to_dict('records')) 
 
 tb_ratings = database.ratings
 tb_ratings.insert_many(ratings.to_dict('records'))
